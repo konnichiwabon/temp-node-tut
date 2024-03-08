@@ -1,14 +1,11 @@
-//npm - global command, comes with node
-//npm --version
+const EventEmitter = require('events');
 
-//local dependency - use it only in this particular project
-// npm i <packageName>
+const customEmitter = new EventEmitter()
 
-//global dependency - use it in any project
-// npm install -g <packageName>
-// sud npm install -g <packageName> (mac)
+customEmitter.on('response', () => {
+  console.log(`data received`)
+}) //response is the name of the event 
 
-//package.json  - manifest file(stores important info about porject/package)
-// manual approach (create package.json in the root, create properties etc)
-// npm init (step by step, press enter to skip)
-// npm init - y (everthing default)
+
+
+customEmitter.emit('response')
